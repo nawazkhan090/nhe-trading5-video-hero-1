@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: transparent;
+  color: #12161C;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #E8622C;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F8FA;
+}
+::-webkit-scrollbar-thumb {
+  background: #8A96A8;
+  border-radius: 6px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Luxury hero: slow-drifting gradient aurora */
+@keyframes auroraDrift {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(4%, -6%) scale(1.08); }
+  66%  { transform: translate(-5%, 4%) scale(0.96); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+.animate-aurora {
+  animation: auroraDrift 18s ease-in-out infinite;
+}
+.animate-aurora-slow {
+  animation: auroraDrift 26s ease-in-out infinite reverse;
+}
+
+/* Richer multi-hue mesh drift for full-site ambient background */
+@keyframes meshDrift1 {
+  0%, 100% { transform: translate(-5%, -8%) scale(1) rotate(0deg); }
+  50% { transform: translate(8%, 6%) scale(1.15) rotate(8deg); }
+}
+@keyframes meshDrift2 {
+  0%, 100% { transform: translate(6%, 4%) scale(1.1) rotate(0deg); }
+  50% { transform: translate(-8%, -6%) scale(0.9) rotate(-10deg); }
+}
+@keyframes meshDrift3 {
+  0%, 100% { transform: translate(0%, 6%) scale(0.95); }
+  50% { transform: translate(-6%, -8%) scale(1.2); }
+}
+.animate-mesh-1 { animation: meshDrift1 22s ease-in-out infinite; }
+.animate-mesh-2 { animation: meshDrift2 28s ease-in-out infinite; }
+.animate-mesh-3 { animation: meshDrift3 24s ease-in-out infinite; }
+
+@keyframes hueRotate {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(18deg); }
+}
+.animate-hue {
+  animation: hueRotate 16s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.animate-glow-pulse {
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+/* Hero Ken Burns — slow zoom + drift on each hero slide, video-like motion */
+@keyframes kenBurns {
+  0%   { transform: scale(1) translate(0%, 0%); }
+  100% { transform: scale(1.14) translate(-2.5%, -1.5%); }
+}
+.animate-ken-burns {
+  animation: kenBurns 7.5s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(110deg, transparent 30%, rgba(232,98,44,0.35) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-fade-scale {
+  animation: fadeScaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll reveal utility, toggled via IntersectionObserver in JS */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnetic hover card lift with glow */
+.lux-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+}
+.lux-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 30px 60px -20px rgba(232, 98, 44, 0.35), 0 0 0 1px rgba(232, 98, 44, 0.25);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(232, 98, 44, 0.5);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #ffffff 0%, #F2895C 50%, #E8622C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Brand photo marquee — two opposing infinite rows */
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.animate-marquee-left {
+  animation: marqueeLeft linear infinite;
+}
+.animate-marquee-right {
+  animation: marqueeRight linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #E8622C;
+  outline-offset: 2px;
+}

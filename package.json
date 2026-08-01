@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix nhe-trading-final run dev",
+    "build": "npm --prefix nhe-trading-final run build",
+    "lint": "npm --prefix nhe-trading-final run lint",
+    "preview": "npm --prefix nhe-trading-final run preview"
+  },
+  "dependencies": {
+    "i": "^0.3.7"
+  }
+}
