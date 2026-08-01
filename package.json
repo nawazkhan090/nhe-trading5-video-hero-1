@@ -1,5 +1,8 @@
 {
   "private": true,
+  "workspaces": [
+    "nhe-trading-final"
+  ],
   "scripts": {
     "dev": "npm --prefix nhe-trading-final run dev",
     "build": "npm --prefix nhe-trading-final run build",
